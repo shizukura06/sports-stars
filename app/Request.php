@@ -20,7 +20,8 @@ class Request
      */
     public function query(string $name): ?string
     {
-        return is_null(self::$fake) ? $_REQUEST[$name] : self::$fake[$name];
+        //return is_null(self::$fake) ? $_REQUEST[$name] : self::$fake[$name];
+        return is_null(self::$fake) ? 1 : self::$fake[$name];
     }
 
     /**

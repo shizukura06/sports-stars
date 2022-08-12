@@ -9,6 +9,7 @@ body {
     grid-template-columns: 1fr;
     align-items: center;
     justify-items: center;
+    position: relative;
 }
 body, body > * {
     box-sizing: border-box;
@@ -20,6 +21,7 @@ main {
     max-height: 620px;
     display: grid;
     grid-template-rows: auto 1fr;
+    position: absolute;
 }
 h1 {
     text-transform: uppercase;
@@ -149,5 +151,85 @@ h3 {
     }
     h2 {
         font-size: 6rem;
+    }
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 101;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.loading-content {
+    margin: auto;
+    padding: 10px 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 150px;
+    /*background: radial-gradient(white 60%,transparent); */
+    background: white;
+    border-radius: 16px;
+}
+.meter {
+    height: 10px;
+    position: relative;
+    background: rgba(85, 85, 85, 0.77);
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    padding: 2px;
+    box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+.meter > span {
+    display: block;
+    height: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgb(196, 196, 196);
+    background-image: linear-gradient(center bottom, rgb(196, 196, 196) 37%, rgb(221, 221, 221) 69%);
+    box-shadow:
+        inset 0 2px 9px  rgba(255,255,255,0.3),
+        inset 0 -2px 6px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.meter > span:after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, .2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, .2) 50%,
+        rgba(255, 255, 255, .2) 75%,
+        transparent 75%,
+        transparent
+    );
+    z-index: 1;
+    background-size: 50px 50px;
+    animation: move 1.5s linear infinite;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    overflow: hidden;
+}
+@keyframes move {
+    100% {
+        background-position: 50px 50px;
+    }
+    0% {
+        background-position: 0 0;
     }
 }

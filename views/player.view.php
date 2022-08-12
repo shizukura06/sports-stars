@@ -1,7 +1,18 @@
 <?php
-include('views/layouts/header.view.php');
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if(!array_key_exists('loaded', $_SESSION)){
+    include('views/layouts/header.view.php');
+}
+
 ?>
 <main>
+    <div class="ui_cards"><!--    This removes white spaces, that also removes gap spaces between
+        --><div class="ui_card_child card_previous" title="Previous Player" onclick="switch_player(this)" data-player="<?= $player_ids[0] ?>"><span><?= $prev_full_name ?></span></div><!--
+        --><div class="ui_card_child card_current" title="Current Player" data-player="0"><span><?= $full_name ?></span></div><!--
+        --><div class="ui_card_child card_next" title="Next Player" onclick="switch_player(this)" data-player="<?= $player_ids[2] ?>"><span><?= $next_full_name ?></span></div>
+    </div>
     <h1>All Blacks Rugby</h1>
     <div class="card">
         <img src="static/images/teams/allblacks.png" alt="All blacks logo" class="logo" />
@@ -40,6 +51,16 @@ include('views/layouts/header.view.php');
         </div>
     </div>
 </main>
+<div hidden id="global_loading" class="modal">
+    <div class="loading-content">
+        <span>Please wait...</span>
+        <div class="meter animate"  style="margin-top: 7px;margin-bottom: 3px;width:100%; ">
+            <span style="width: 100%"></span>
+        </div>
+    </div>
+</div>
 <?php
-include('views/layouts/footer.view.php');
+if(!array_key_exists('loaded', $_SESSION)) {
+    include('views/layouts/footer.view.php');
+}
 ?>

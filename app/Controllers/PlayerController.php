@@ -13,14 +13,24 @@ class PlayerController
      * @param  int $id
      * @return \Illuminate\View\View
      */
-    public function show($id = null)
+    public function show($id = 1)
     {
-        $id = $id ?? 1;
+        $c_id = $id;
+        $p_id = (($id - 1) == 0) ? 8 : ($id - 1);
+        $n_id = (($id + 1) == 9) ? 8 : ($id + 1);
 
-        $player = $this->player($id);
+        $player = $this->player($c_id);
+        $prev_player = $this->player($p_id);
+        $next_player = $this->player($n_id);
 
         // split first & last name
         $names = collect(preg_split('/\s+/', $player->get('name')));
+        $player->put('player_ids',  [$p_id, $c_id, $n_id]);
+        $prev_player_name = $prev_player->get('name');
+        $next_player_name = $next_player->get('name');
+        $player->put('full_name', $player->get('name'));
+        $player->put('prev_full_name', $prev_player_name);
+        $player->put('next_full_name', $next_player_name);
         $player->put('last_name', $names->pop());
         $player->put('first_name', $names->join(' '));
 

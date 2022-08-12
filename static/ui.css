@@ -1,0 +1,30 @@
+.ui_cards{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: rotate(90deg);
+    transform-origin: 100% 100%;
+}
+.ui_card_child{
+    display: inline-block;
+    padding: 1px 8px;
+    font-size: 18px;
+    font-weight: 700;
+    transition: background 200ms;
+}
+.card_previous,
+.card_next{
+    background: black;
+    color: white;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.card_current{
+    background: #dfe1e8;
+    border: 1px solid transparent;
+    cursor: default;
+}
+.card_previous:hover,
+.card_next:hover{
+    background: #4e4e4e; /* I don't know if this is acceptable as this is not included in the instruction, forgive me in advance! :)  */
+}
