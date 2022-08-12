@@ -52,17 +52,15 @@ if(!array_key_exists('loaded', $_SESSION)){
         </div>
     </div>
 </main>
+<button class="switch_game" onclick="switch_game()">Switch Game</button>
 <div hidden id="global_loading" class="modal">
     <div class="loading-content">
-        <span>Please wait...</span>
+        <span>Loading...</span>
         <div class="meter animate"  style="margin-top: 7px;margin-bottom: 3px;width:100%; ">
             <span style="width: 100%"></span>
         </div>
     </div>
 </div>
-<script>
-    var is_allblacks = <?= $is_allblacks ?>;
-</script>
 <?php
 if(!array_key_exists('loaded', $_SESSION)) {
     include('views/layouts/footer.view.php');

@@ -28,3 +28,21 @@
 .card_next:hover{
     background: #4e4e4e; /* I don't know if this is acceptable as this is not included in the instruction, forgive me in advance! :)  */
 }
+.switch_game{
+    position: fixed;
+    top: 3px;
+    right: 3px;
+    background: black;
+    color: white;
+    font-weight: 700;
+    font-variant-caps: all-petite-caps;
+    padding: 7px 13px;
+    border: 0px solid black;
+    border-radius: 3px;
+    font-size: 16px;
+    z-index: 98;
+    cursor: pointer;
+}
+.switch_game_nba{
+    background: #1d4487 !important;
+}

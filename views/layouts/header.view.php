@@ -14,6 +14,7 @@
         <link href="static/ui.css" rel="stylesheet" />
 
         <script>
+            var is_allblacks = <?= $is_allblacks ?>;
             window.jQuery || document.write('<link href="include/jq/jquery-ui.css" rel="stylesheet"> ' +
                 '<script src="include/jq/jq_simp.js"><\/script>' +
                 '<script src="include/jq/jquery-ui.js"><\/script> ');
