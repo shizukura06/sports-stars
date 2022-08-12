@@ -18,6 +18,14 @@ if(array_key_exists('ajax', $_POST)){
             echo $controller->show($_POST['id']);
 
             break;
+        case 2:
+            $request = new Request();
+
+            $controller = new PlayerController();
+
+            echo $controller->nba_show($_POST['id']);
+
+            break;
 
         default:
 

@@ -38,6 +38,15 @@ h1 {
     align-items: end;
     justify-items: center;
 }
+.gsw_card {
+    border-top: solid 0.75rem #1d4487 !important;
+}
+.gsw_h1{
+    color: #1d4487 !important;
+}
+.gsw_ui{
+    background: #1d4487 !important;
+}
 .card .name {
     position: absolute;
     top: 7rem;
